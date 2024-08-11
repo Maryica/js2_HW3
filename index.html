@@ -1,0 +1,81 @@
+<p class="super_element">Привет</p>
+
+<img src="https://placeimg.com/50/50/animals" alt="" />
+<img src="https://placeimg.com/50/50/arch" alt="" />
+<img src="https://placeimg.com/50/50/nature" alt="" />
+<img src="https://placeimg.com/50/50/people" alt="" />
+<img src="https://placeimg.com/50/50/tech" alt="" />
+<img src="https://placeimg.com/50/50/tech/grayscale" alt="" />
+<img src="https://placeimg.com/50/50/tech/sepia" alt="" />
+
+<br />
+
+<button>Кнопка</button>
+<button class="super_element">Кнопка с классом btn</button>
+<button>Кнопка</button>
+
+<br />
+
+<textarea class="textarea"></textarea>
+
+<br />
+
+<ul>
+  <li>
+    <button>Кнопка 1</button>
+  </li>
+  <li>
+    <button>Кнопка 2</button>
+  </li>
+  <li>
+    <button>Кнопка 3</button>
+  </li>
+  <li>
+    <button>Кнопка 4</button>
+  </li>
+</ul>
+
+<script>
+  "use strict";
+
+  document.addEventListener("DOMContentLoaded", function (e) {
+    console.log("Все теги прогрузились");
+  });
+
+  window.addEventListener("load", function (e) {
+    console.log("Страница загрузилась");
+  });
+
+  const bodyElem = document.querySelector("body");
+  bodyElem.addEventListener("click", function (e) {
+    const clickEl = e.target;
+    const elTag = clickEl.tagName.toLowerCase();
+    if (clickEl.classList.contains("super_element")) {
+      console.log(`Класс "super_element" присутствует в элементе ${elTag}`);
+    } else {
+      console.log(`Класс "super_element" отсутствует в элементе ${elTag}`);
+    }
+  });
+
+  const textareaEl = document.querySelector(".textarea");
+  textareaEl.addEventListener("mouseover", function (e) {
+    console.log("Вы навели на textarea.");
+  });
+
+  const listElem = document.querySelector("ul");
+  listElem.addEventListener("click", (e) => {
+    if (e.target.tagName.toLowerCase() !== "button") {
+      return;
+    } else {
+      console.log(`Текст кнопки: ${e.target.innerText}`);
+    }
+  });
+
+  const liEl = document.querySelectorAll("li");
+
+  for (let i = 0; i < liEl.length; i++) {
+    if (i % 2 === 1) {
+      liEl[i].style.backgroundColor = "grey";
+    }
+  }
+</script>
